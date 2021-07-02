@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
     <sys_script_client action="INSERT_OR_UPDATE">
-        <active>true</active>
+        <active>false</active>
         <applies_extended>false</applies_extended>
         <condition/>
         <description>Practice debugging techniques in ServiceNow.</description>
@@ -13,16 +13,23 @@
         <script><![CDATA[function onSubmit() {
 	try{
 		var x = 7;
-		jslogger("This message is from jslog().");
+		jslog("This message is from jslog().");
 		jslog("The value of x = " + x);
 		jslog("The NeedIt State value = " + g_form.getValue('state'));
-		jslog("The currently logged in user is " + g_user.getFullName() + ".");
-				
-						
- 		g_form.setValue('short_description', g_form.getValue('short_description') + " -  Updated field value");
+		jslog("The currently logged in user is " + g_user.getFullName() + ".");		
+		
+        var myVar = 3;
+		jslog("This message is from jslog().");   
+		jslog("The value of myVar = " + myVar); 
+		jslog("The Priority value = " + g_form.getValue('priority'));
+		jslog("The first name of the currently logged in user is " + g_user.firstName + ".");
+		
+        //g_form.setValue('short_description', g_form.getValue('short_description') + " - Updated field value");   
+		jslog("This message was written by the jslog() method.");
+        //console.log("This message was written by console.log().");
 	}
 	catch(err){
-		jslogger('A JavaScript runtime error occurred: ' + err.message);
+		jslog('A JavaScript runtime error occurred: ' + err.message);
 	}
 }]]></script>
         <sys_class_name>sys_script_client</sys_class_name>
@@ -31,7 +38,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>d1ad47421b81301010df31d7dc4bcb66</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>14</sys_mod_count>
         <sys_name>NeedIt Practice Debugging</sys_name>
         <sys_overrides/>
         <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
@@ -39,7 +46,7 @@
         <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
         <sys_update_name>sys_script_client_d1ad47421b81301010df31d7dc4bcb66</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-07-01 12:49:18</sys_updated_on>
+        <sys_updated_on>2021-07-02 06:35:24</sys_updated_on>
         <table>x_58872_needit_needit</table>
         <type>onSubmit</type>
         <ui_type>10</ui_type>
