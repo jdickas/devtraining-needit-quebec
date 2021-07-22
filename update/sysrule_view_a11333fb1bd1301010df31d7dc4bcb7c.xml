@@ -11,6 +11,7 @@
         <overrides_user_preference>true</overrides_user_preference>
         <script><![CDATA[(function overrideView(view, is_list) {
 //Force admin users to use the existing view
+gs.addInfoMessage("Currently active view: " + view);
 if (gs.hasRole("admin"))
 {gs.addInfoMessage("Currently logged in user has the admin role."); return;}
 if (view.startsWith("User"))
@@ -18,7 +19,7 @@ if (view.startsWith("User"))
 // do not change view if it starts with sys_ (e.g. sys_ref_list)
 if (view.startsWith("sys_"))
 {return;}
-//answer = "User"; // set the new view to answer
+answer = "User"; // set the new view to answer
 })(view, is_list);]]></script>
         <sys_class_name>sysrule_view</sys_class_name>
         <sys_created_by>admin</sys_created_by>
@@ -26,7 +27,7 @@ if (view.startsWith("sys_"))
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>a11333fb1bd1301010df31d7dc4bcb7c</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>Needit User</sys_name>
         <sys_overrides/>
         <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
@@ -34,7 +35,7 @@ if (view.startsWith("sys_"))
         <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
         <sys_update_name>sysrule_view_a11333fb1bd1301010df31d7dc4bcb7c</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2021-07-21 07:01:02</sys_updated_on>
+        <sys_updated_on>2021-07-21 07:15:23</sys_updated_on>
         <table>x_58872_needit_needit</table>
         <view>User</view>
     </sysrule_view>
