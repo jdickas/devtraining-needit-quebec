@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sysauto_report">
     <sysauto_report action="INSERT_OR_UPDATE">
         <active>true</active>
-        <address_list/>
+        <address_list>johannes.dickas@atos.net</address_list>
         <business_calendar/>
         <condition/>
         <conditional>false</conditional>
         <entered_time/>
         <group_list/>
         <include_detail>false</include_detail>
-        <include_with/>
+        <include_with display_value="Scheduled execution of MarasContracts">8becdcba87be3010bb4543fc0ebb3590</include_with>
         <name>Scheduled execution of NeedIt Requests by Type</name>
         <offset/>
         <offset_type/>
@@ -18,7 +18,8 @@
         <page_size>Letter</page_size>
         <page_width_in_pixels>792</page_width_in_pixels>
         <report display_value="NeedIt Requests by Type">7eced24a4f621300874e8020a310c7d5</report>
-        <report_body><![CDATA[<p>Attached please find the daily NeedIt Requests by type report</p>]]></report_body>
+        <report_body><![CDATA[<p>Attached please find the daily NeedIt Requests by type report</p>
+<p><a href="https://dev91421.service-now.com/sys_report_display.do?sysparm_report_id=7eced24a4f621300874e8020a310c7d5">https://dev91421.service-now.com/sys_report_display.do?sysparm_report_id=7eced24a4f621300874e8020a310c7d5</a></p>]]></report_body>
         <report_title>Daily NeedIt Requests by Type report</report_title>
         <run_as display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</run_as>
         <run_as_tz/>
@@ -32,14 +33,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2018-06-11 04:48:32</sys_created_on>
         <sys_id>3c3356364fee1300874e8020a310c7ec</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>5</sys_mod_count>
         <sys_name>Scheduled execution of NeedIt Requests by Type</sys_name>
         <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
         <sys_policy/>
         <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
         <sys_update_name>sysauto_report_3c3356364fee1300874e8020a310c7ec</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-06-11 05:48:07</sys_updated_on>
+        <sys_updated_on>2021-09-28 10:38:01</sys_updated_on>
         <time_zone/>
         <upgrade_safe>false</upgrade_safe>
         <user_list/>
