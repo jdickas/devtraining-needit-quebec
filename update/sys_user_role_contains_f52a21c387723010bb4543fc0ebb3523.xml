@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_user_role_contains">
     <sys_user_role_contains action="INSERT_OR_UPDATE">
         <contains display_value="x_58872_needit.needit_user" name="x_58872_needit.needit_user">4e42fb8d0fa83200cd674f8ce1050e72</contains>
-        <role display_value="x_58872_needit.needit_admin" name="x_58872_needit.needit_admin">f099698387723010bb4543fc0ebb3525</role>
+        <role display_value="x_58872_needit.admin" name="x_58872_needit.admin">f099698387723010bb4543fc0ebb3525</role>
         <sys_class_name>sys_user_role_contains</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2021-09-29 07:50:08</sys_created_on>
