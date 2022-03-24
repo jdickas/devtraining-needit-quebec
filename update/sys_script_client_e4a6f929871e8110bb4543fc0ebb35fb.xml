@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>u_when_needed</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>compareDates</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+    if (isLoading || newValue === '') {
+        return;
+    }
+
+    //Type appropriate comment here, and begin script below
+
+    //var start = profileGR.getValue("employment_start_date");
+    var start = newValue;
+    //var startStr = getDateFromFormat(start, g_user_date_format);
+
+    g_form.addInfoMessage('start: ' + start);
+    //g_form.addInfoMessage('startStr: ' + startStr);
+
+    //var datesection = g_form.getValue('start').split(' ')[0];  -- undefined
+    var datesection = g_form.getValue('u_when_needed').split(' ')[0];
+    var timesection = g_form.getValue('u_when_needed').split(' ')[1];
+
+    g_form.addInfoMessage('datesection: ' + datesection);
+    g_form.addInfoMessage('timesection: ' + timesection);
+
+    var year1 = datesection.split("-")[0];
+    var month1 = datesection.split("-")[1];
+    var day1 = datesection.split("-")[2];
+
+    g_form.addInfoMessage('datesection || year: ' + year1 + ' month: ' + month1 + ' day: ' + day1);
+
+    var nowDate = new Date();
+    var nowDateStr = new Date().toString();
+    // following lines only works with dates from ServiceNowFields
+    var date_number_getValue = getDateFromFormat(g_form.getValue('u_when_needed'), g_user_date_time_format);
+    var date_number_newValue = getDateFromFormat(start, g_user_date_time_format);
+    //var date_number = getDateFromFormat(nowDate, g_user_date_time_format);  //doesn't work
+    //var nowDateChanged = getDateFromFormat(date_number, g_user_date_format); // 0
+    var nowDateFormatgetValue = new Date(date_number_getValue);
+    var nowDateFormatnewValue = new Date(date_number_newValue);
+
+    g_form.addInfoMessage('nowDate: ' + nowDate);
+    g_form.addInfoMessage('nowDateStr: ' + nowDateStr);
+    g_form.addInfoMessage('nowDateFormat_getValue: ' + nowDateFormatgetValue);
+    g_form.addInfoMessage('nowDateFormat_newValue: ' + nowDateFormatnewValue);
+
+    // gives type error
+    // 	var month3 = 1;
+    //  var year2 = nowDate.split(" ")[3];
+    //  var month2 = nowDate.split(" ")[1];
+    // 	month3 = nowDate.split(" ")[1];
+    // 	g_form.addInfoMessage('year2: ' + year2 + ' month2: ' + month2 + ' month3: ' + month3);
+
+    g_form.addInfoMessage('nowDate (new Date()) || year: ' + nowDate.getFullYear() + ' month: ' + (nowDate.getMonth() + 1) + ' day: ' + nowDate.getDate());
+    g_form.addInfoMessage('nowDate (new Date()) || nextyear: ' + (nowDate.getFullYear() + 1) + ' month: ' + (nowDate.getMonth() + 1) + ' day: ' + nowDate.getDate());
+
+    var month13 = 1;
+    var year12 = nowDateStr.split(" ")[3];
+    var month12 = nowDateStr.split(" ")[1];
+    month13 = nowDateStr.split(" ")[1];
+    g_form.addInfoMessage('nowDateStr (new Date().toString()) || year12: ' + year12 + ' month12: ' + month12 + ' month13: ' + month13);
+
+    //  gives type error
+    // 	var month23 = 1;
+    // 	var year22 = nowDateFormat.split(" ")[3];
+    // 	var month22 = nowDateFormat.split(" ")[1];
+    // 	month13 = nowDateFormat.split(" ")[1];
+    // 	g_form.addInfoMessage('year22: ' + year22 + ' month22: ' + month22 + ' month23: ' + month23);	
+
+
+    g_form.addInfoMessage('getValue() || year: ' + nowDateFormatgetValue.getFullYear() + ' month: ' + (nowDateFormatgetValue.getMonth() + 1) + ' day: ' + nowDateFormatgetValue.getDate());
+    g_form.addInfoMessage('getValue() || nextyear: ' + (nowDateFormatgetValue.getFullYear() + 1) + ' month: ' + (nowDateFormatgetValue.getMonth() + 1) + ' day: ' + nowDateFormatgetValue.getDate());
+	
+    g_form.addInfoMessage('newValue || year: ' + nowDateFormatnewValue.getFullYear() + ' month: ' + (nowDateFormatnewValue.getMonth() + 1) + ' day: ' + nowDateFormatnewValue.getDate());
+    g_form.addInfoMessage('newValue || nextyear: ' + (nowDateFormatnewValue.getFullYear() + 1) + ' month: ' + (nowDateFormatnewValue.getMonth() + 1) + ' day: ' + nowDateFormatnewValue.getDate());	
+
+    var date1 = new Date('2010-10-08T00:00:00+05:30');
+    //alert((date1.getMonth() + 1) + '/' + date1.getDate() + '/' + date1.getFullYear());
+    g_form.addInfoMessage('year: ' + date1.getFullYear() + ' month: ' + (date1.getMonth() + 1) + ' day: ' + date1.getDate());
+    var date2 = new Date();
+    g_form.addInfoMessage('year: ' + date2.getFullYear() + ' month: ' + (date2.getMonth() + 1) + ' day: ' + date2.getDate());
+
+    var month112 = (nowDateFormatnewValue.getMonth() + 6); // month12
+	g_form.addErrorMessage('month112: ' + month112 + ' month1: ' + month1);
+    var monthDiff = 1;
+
+    if (year1 == year12) {
+        //return month112 - month1;
+        monthDiff = month112 - month1;
+        g_form.addInfoMessage("Differenz in months: " + monthDiff);
+    } else {
+        var yearDiff = year12 - year1;
+        monthDiff = month112 - month1;
+        //return (yearDiff * 12) + monthDiff;
+        g_form.addInfoMessage("Differenz in months: " + (yearDiff * 12) + monthDiff);
+    }
+
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2022-03-17 16:36:56</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>e4a6f929871e8110bb4543fc0ebb35fb</sys_id>
+        <sys_mod_count>63</sys_mod_count>
+        <sys_name>compareDates</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_script_client_e4a6f929871e8110bb4543fc0ebb35fb</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2022-03-18 10:01:35</sys_updated_on>
+        <table>x_58872_needit_needit</table>
+        <type>onChange</type>
+        <ui_type>0</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>
